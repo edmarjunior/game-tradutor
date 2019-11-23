@@ -6,5 +6,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'learn-english';
+  jogoEmAndamento = true;
+  vitoria: boolean;
+
+  mensagem = {
+    vitoria: 'Parabéns, você venceu!',
+    derrota: 'Infelizmente você perdeu! Tente novamente'
+  };
+
+
+  encerrarJogo(vitoria: boolean) {
+    this.vitoria = vitoria;
+    this.jogoEmAndamento = false;
+  }
+
+  getMensagem() {
+    return this.vitoria ? this.mensagem.vitoria : this.mensagem.derrota;
+  }
+
+  reiniciar() {
+    this.jogoEmAndamento = true;
+    this.vitoria = undefined;
+  }
 }
